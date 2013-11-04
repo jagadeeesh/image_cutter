@@ -1,0 +1,22 @@
+
+<h1>Image Cutter</h1>
+
+<div class="row">
+  <div class="span6 offset3">
+    <%= form_for(@image, :html => {:multipart => true}) do |f| %>
+    
+
+      <%= f.label :name %>
+      <%= f.text_field :name %><br>
+
+      <%= f.label :email %>
+      <%= f.text_field :email %><br>
+      
+      <%= f.label :upload %>
+      <%= f.file_field :image %><br>
+      
+      <%= f.submit "store", class: "btn btn-large btn-primary" %>
+    <% end %>
+  </div>
+</div>
+
