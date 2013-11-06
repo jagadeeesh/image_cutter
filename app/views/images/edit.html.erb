@@ -1,0 +1,21 @@
+<h2>Resize your image</h2>
+
+<div class="row">
+  <div class="span6 offset3">
+    <%= form_for(@image) do |f| %>
+     
+       <%= image_tag @image.image_url %>
+      <%= f.label :width %>
+      <%=text_field_tag :width, @width %>
+
+      <%= f.label :height %>
+      <%=text_field_tag :height, @height %><br>
+       
+
+
+      <%= f.submit "Save changes", class: "btn btn-small btn-primary" %>
+    <% end %>
+
+   
+  </div>
+</div>

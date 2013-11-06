@@ -1,0 +1,19 @@
+class ImageUploader < CarrierWave::Uploader::Base
+  include CarrierWave::RMagick
+ 
+  version :best do
+    process :convert => 'jpg'
+    process :get_geometry
+    
+    def geometry
+      @geometry
+    end
+  end
+  
+  def get_geometry
+    if (@image)
+      img = ::Magick::Image::read(@image.image).first
+      @geometry = [ img.columns, img.rows ]
+    end
+  end
+end

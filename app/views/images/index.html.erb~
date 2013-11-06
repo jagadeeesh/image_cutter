@@ -1,0 +1,35 @@
+<h1>welcome to Image cutter App</h1>
+<div class="row">
+ <table class="table table-striped ">
+ 
+<th class="align-right">names</th>
+<th>operations</th>
+ <% @image.each do |i| %>
+ <tr>
+ <td align="left">
+ <%=i.name%>
+ </td>
+ <td >
+<%= link_to image_path(i), class: "btn btn-small btn-info" do %> 
+  <i class="icon-white icon-eye-open"></i>
+  Show
+<% end %>
+<%= link_to edit_image_path(i), class: "btn btn-small btn-warning" do %> 
+  <i class="icon-white icon-edit"></i>
+  Edit
+<% end %>  
+<%= link_to image_path(i), class: "btn btn-small btn-danger",method: :delete, data: { confirm: "You sure?"} do %> 
+  <i class="icon-white icon-trash"></i>
+  Delete
+  <% end %>
+</td>
+</tr>
+<% end %>
+</table>
+</div>
+<div class="column" align="left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<%= link_to new_image_path, class:"btn btn-success" do%>
+ <i class="icon-white icon-glass"></i>
+store new image
+<% end %>
+</div>
