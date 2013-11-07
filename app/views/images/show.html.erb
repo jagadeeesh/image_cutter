@@ -1,9 +1,11 @@
+<h2>Transformations</h2>
 <div class="row">
   <div class="span6 offset3">
     <%= form_for(@image) do |f| %>
      
        <%= image_tag @image.image_url %><br><br>
-        <%= link_to "Edit", edit_image_path(@image) %>|
+        <%= link_to "Resize", edit_image_path(@image) %>|
+        <%= link_to "Crop", '#' %>|
         <%=link_to "Back", images_path %>
        <%end%>
    </div>

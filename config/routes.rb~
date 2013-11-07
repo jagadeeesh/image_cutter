@@ -1,6 +1,7 @@
 ImageCutter::Application.routes.draw do
   resources:images
-  
+  match '/:path', to: 'images#transform', via:'get', path: /.../
+  #match '/:path', to: 'images#transform', path: /.*and/
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -15,7 +16,7 @@ ImageCutter::Application.routes.draw do
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
-
+#http://images.desimartini.com/media/uploads/pawan-kalyan.jpg
   # Example resource route with options:
   #   resources :products do
   #     member do

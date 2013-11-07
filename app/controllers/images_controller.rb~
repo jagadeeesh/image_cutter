@@ -24,25 +24,29 @@ class ImagesController < ApplicationController
    img = Magick::Image.read(@image.image.path).first
    width=params[:width].to_i
    height=params[:height].to_i
-   params[:image] = img.resize(width, height)
-#=begin   
-    if @image.update_attributes(image_params)
-       redirect_to @image
-    else
-       render 'edit'
-    end
+      image=img.resize!(width, height)
+      image.write(@image.image.path)
+   redirect_to @image
    end
-#=end
     
   def create
+   
    @image=Image.new(image_params)
     if @image.save
-     #flash.now[:success]="your data stored successfully"
      redirect_to  @image
     else
      render text:" stored"
     end 
   end
+  
+  def transform
+    #binding.pry
+    render text: params[:path]
+   #image=open(params[:path],'User-Agent' => 'Test').read
+   # File f=File.open("img1",'w')
+   #  f.write(image)
+  end
+  
   def destroy
   @image=Image.find(params[:id]).destroy
   redirect_to :back
